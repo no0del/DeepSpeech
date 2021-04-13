@@ -1259,6 +1259,8 @@ jobs:
           build-flavor: ${{ matrix.build-flavor }}
           bitrate: ${{ matrix.bitrate }}
           model-kind: ${{ matrix.models }}
+      - uses: mozilla/action-tmate@master
+        if: ${{ failure() }}
   test-electronjs_all-Windows:
     name: "Win|Test MultiArchPlatform ElectronJS bindings"
     runs-on: windows-2019
@@ -1317,3 +1319,5 @@ jobs:
           bitrate: ${{ matrix.bitrate }}
           model-kind: ${{ matrix.models }}
         timeout-minutes: 5
+      - uses: mozilla/action-tmate@master
+        if: ${{ failure() }}
